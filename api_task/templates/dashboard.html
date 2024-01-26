@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{% static "js/script.js" %}"></script>
+</head>
+<body>
+    <h2>Welcome to Your Dashboard, {{ request.user.username }}!</h2>
+    {% if user_type %}
+        <p>User Type: {{ user_type }}</p>
+    {% endif %}
+    <ul>
+        <li><a class="fetchLink" href="{% url 'author-list' %}">Author list</a></li>
+        <li><a class="fetchLink" href="{% url 'book-list' %}">Book list</a></li>
+        <li><a class="fetchLink" href="{% url 'library-list' %}">Library</a></li>
+    </ul>
+
+    <div id="result"></div>
+</body>
+</html>
